@@ -110,10 +110,19 @@
             border-radius: 4px;
             cursor: pointer;
             font-size: 16px;
+            margin: 0 5px;
         }
         
         .btn:hover {
             background-color: #004d27;
+        }
+        
+        .btn-translate {
+            background-color: #1a73e8;
+        }
+        
+        .btn-translate:hover {
+            background-color: #0d5bba;
         }
         
         .two-columns {
@@ -123,6 +132,22 @@
         
         .two-columns > div {
             flex: 1;
+        }
+        
+        .language-fr {
+            display: block;
+        }
+        
+        .language-pt {
+            display: none;
+        }
+        
+        body.portuguese .language-fr {
+            display: none;
+        }
+        
+        body.portuguese .language-pt {
+            display: block;
         }
         
         @media (max-width: 600px) {
@@ -136,24 +161,41 @@
     <div class="form-container" id="form-to-print">
         <div class="header">
             <h1>سفارة المملكة المغربية</h1>
-            <h2>برأزبليا</h2>
+            <h2 class="language-fr">برأزبليا</h2>
+            <h2 class="language-pt">Brasília</h2>
         </div>
         
-        <div class="form-title">DEMANDE D'IMMATRICULATION</div>
-        <div style="font-style: italic; margin-bottom: 20px;">(A remplir par les citoyens Marocains résidant au Brésil, Paraguay ou Suriname)</div>
+        <div class="form-title">
+            <span class="language-fr">DEMANDE D'IMMATRICULATION</span>
+            <span class="language-pt">FORMULÁRIO DE REGISTRO CONSULAR</span>
+        </div>
+        
+        <div style="font-style: italic; margin-bottom: 20px;">
+            <span class="language-fr">(A remplir par les citoyens Marocains résidant au Brésil, Paraguay ou Suriname)</span>
+            <span class="language-pt">(A ser preenchido por cidadãos marroquinos residentes no Brasil, Paraguai ou Suriname)</span>
+        </div>
         
         <div class="two-columns">
             <div class="form-group">
-                <label for="immatriculation-number">N° d'Immatriculation :</label>
+                <label for="immatriculation-number">
+                    <span class="language-fr">N° d'Immatriculation :</span>
+                    <span class="language-pt">N° de Registro :</span>
+                </label>
                 <input type="text" id="immatriculation-number">
             </div>
             <div class="form-group">
-                <label for="immatriculation-date">Date d'immatriculation :</label>
+                <label for="immatriculation-date">
+                    <span class="language-fr">Date d'immatriculation :</span>
+                    <span class="language-pt">Data de registro :</span>
+                </label>
                 <input type="date" id="immatriculation-date">
             </div>
         </div>
         
-        <div class="section-title">Immatriculation antérieure: Ambassade ou Consulat du Royaume du Maroc à:</div>
+        <div class="section-title">
+            <span class="language-fr">Immatriculation antérieure: Ambassade ou Consulat du Royaume du Maroc à:</span>
+            <span class="language-pt">Registro anterior: Embaixada ou Consulado do Reino do Marrocos em:</span>
+        </div>
         <div class="form-group">
             <input type="text" id="previous-immatriculation-1">
         </div>
@@ -163,99 +205,162 @@
         
         <div class="two-columns">
             <div class="form-group">
-                <label for="cin-number">N° de la Carte d'Identité Nationale Marocaine (CIN) :</label>
+                <label for="cin-number">
+                    <span class="language-fr">N° de la Carte d'Identité Nationale Marocaine (CIN) :</span>
+                    <span class="language-pt">N° do Cartão de Identidade Nacional Marroquino (CIN) :</span>
+                </label>
                 <input type="text" id="cin-number">
             </div>
             <div class="form-group">
-                <label for="cin-issue-date">Date de délivrance :</label>
+                <label for="cin-issue-date">
+                    <span class="language-fr">Date de délivrance :</span>
+                    <span class="language-pt">Data de emissão :</span>
+                </label>
                 <input type="date" id="cin-issue-date">
             </div>
         </div>
         
         <div class="two-columns">
             <div class="form-group">
-                <label for="first-name">Prénom :</label>
+                <label for="first-name">
+                    <span class="language-fr">Prénom :</span>
+                    <span class="language-pt">Nome :</span>
+                </label>
                 <input type="text" id="first-name">
             </div>
             <div class="form-group">
-                <label for="last-name">Nom :</label>
+                <label for="last-name">
+                    <span class="language-fr">Nom :</span>
+                    <span class="language-pt">Sobrenome :</span>
+                </label>
                 <input type="text" id="last-name">
             </div>
         </div>
         
         <div class="form-group">
-            <label for="arrival-date">Date d'arrivée au Brésil :</label>
+            <label for="arrival-date">
+                <span class="language-fr">Date d'arrivée au Brésil :</span>
+                <span class="language-pt">Data de chegada ao Brasil :</span>
+            </label>
             <input type="date" id="arrival-date">
         </div>
         
-        <div class="section-title">ETAT CIVIL :</div>
+        <div class="section-title">
+            <span class="language-fr">ETAT CIVIL :</span>
+            <span class="language-pt">ESTADO CIVIL :</span>
+        </div>
         
         <div class="two-columns">
             <div class="form-group">
-                <label for="birth-date">Date de naissance :</label>
+                <label for="birth-date">
+                    <span class="language-fr">Date de naissance :</span>
+                    <span class="language-pt">Data de nascimento :</span>
+                </label>
                 <input type="date" id="birth-date">
             </div>
             <div class="form-group">
-                <label for="current-nationality">Nationalité actuelle :</label>
+                <label for="current-nationality">
+                    <span class="language-fr">Nationalité actuelle :</span>
+                    <span class="language-pt">Nacionalidade atual :</span>
+                </label>
                 <input type="text" id="current-nationality">
             </div>
         </div>
         
         <div class="two-columns">
             <div class="form-group">
-                <label for="birth-place">Lieu de naissance :</label>
+                <label for="birth-place">
+                    <span class="language-fr">Lieu de naissance :</span>
+                    <span class="language-pt">Local de nascimento :</span>
+                </label>
                 <input type="text" id="birth-place">
             </div>
             <div class="form-group">
-                <label for="original-nationality">Nationalité d'origine :</label>
+                <label for="original-nationality">
+                    <span class="language-fr">Nationalité d'origine :</span>
+                    <span class="language-pt">Nacionalidade de origem :</span>
+                </label>
                 <input type="text" id="original-nationality">
             </div>
         </div>
         
         <div class="form-group">
-            <label for="family-situation">Situation de Famille :</label>
+            <label for="family-situation">
+                <span class="language-fr">Situation de Famille :</span>
+                <span class="language-pt">Situação Familiar :</span>
+            </label>
             <input type="text" id="family-situation">
         </div>
         
-        <div class="section-title">Parents :</div>
+        <div class="section-title">
+            <span class="language-fr">Parents :</span>
+            <span class="language-pt">Pais :</span>
+        </div>
         
         <div class="form-group">
-            <label for="father-name">Prénom et Nom du Père :</label>
+            <label for="father-name">
+                <span class="language-fr">Prénom et Nom du Père :</span>
+                <span class="language-pt">Nome do Pai :</span>
+            </label>
             <input type="text" id="father-name">
         </div>
         
         <div class="form-group">
-            <label for="father-nationality">Nationalité du père :</label>
+            <label for="father-nationality">
+                <span class="language-fr">Nationalité du père :</span>
+                <span class="language-pt">Nacionalidade do pai :</span>
+            </label>
             <input type="text" id="father-nationality">
         </div>
         
         <div class="form-group">
-            <label for="mother-name">Prénom et Nom de la Mère :</label>
+            <label for="mother-name">
+                <span class="language-fr">Prénom et Nom de la Mère :</span>
+                <span class="language-pt">Nome da Mãe :</span>
+            </label>
             <input type="text" id="mother-name">
         </div>
         
         <div class="form-group">
-            <label for="mother-nationality">Nationalité de la mère :</label>
+            <label for="mother-nationality">
+                <span class="language-fr">Nationalité de la mère :</span>
+                <span class="language-pt">Nacionalidade da mãe :</span>
+            </label>
             <input type="text" id="mother-nationality">
         </div>
         
-        <div class="section-title">ADRESSE :</div>
+        <div class="section-title">
+            <span class="language-fr">ADRESSE :</span>
+            <span class="language-pt">ENDEREÇO :</span>
+        </div>
         
         <div class="form-group">
-            <label for="current-address">Adresse complète au Brésil/Paraguay/Suriname :</label>
+            <label for="current-address">
+                <span class="language-fr">Adresse complète au Brésil/Paraguay/Suriname :</span>
+                <span class="language-pt">Endereço completo no Brasil/Paraguai/Suriname :</span>
+            </label>
             <textarea id="current-address" rows="3"></textarea>
         </div>
         
         <div class="form-group">
-            <label>Téléphone :</label>
+            <label>
+                <span class="language-fr">Téléphone :</span>
+                <span class="language-pt">Telefone :</span>
+            </label>
             <div class="phone-input">
-                <span>Domicile :</span> <input type="tel" id="home-phone" style="width: 150px;">
+                <span class="language-fr">Domicile :</span>
+                <span class="language-pt">Residencial :</span>
+                <input type="tel" id="home-phone" style="width: 150px;">
             </div>
             <div class="phone-input">
-                <span>Travail :</span> <input type="tel" id="work-phone" style="width: 150px;">
+                <span class="language-fr">Travail :</span>
+                <span class="language-pt">Trabalho :</span>
+                <input type="tel" id="work-phone" style="width: 150px;">
             </div>
             <div class="phone-input">
-                <span>Cellulaire :</span> <input type="tel" id="mobile-phone" style="width: 150px;">
+                <span class="language-fr">Cellulaire :</span>
+                <span class="language-pt">Celular :</span>
+                <input type="tel" id="mobile-phone" style="width: 150px;">
             </div>
         </div>
         
@@ -265,109 +370,171 @@
         </div>
         
         <div class="form-group">
-            <label for="morocco-address">Adresse complète au Maroc :</label>
+            <label for="morocco-address">
+                <span class="language-fr">Adresse complète au Maroc :</span>
+                <span class="language-pt">Endereço completo no Marrocos :</span>
+            </label>
             <textarea id="morocco-address" rows="3"></textarea>
         </div>
         
         <div class="form-group">
-            <label for="morocco-phone">Téléphone :</label>
+            <label for="morocco-phone">
+                <span class="language-fr">Téléphone :</span>
+                <span class="language-pt">Telefone :</span>
+            </label>
             <input type="tel" id="morocco-phone">
         </div>
         
-        <div class="section-title">PASSEPORT :</div>
+        <div class="section-title">
+            <span class="language-fr">PASSEPORT :</span>
+            <span class="language-pt">PASSAPORTE :</span>
+        </div>
         
         <div class="form-group">
-            <label for="passport-number">N° du passeport actuel :</label>
+            <label for="passport-number">
+                <span class="language-fr">N° du passeport actuel :</span>
+                <span class="language-pt">N° do passaporte atual :</span>
+            </label>
             <input type="text" id="passport-number">
         </div>
         
         <div class="two-columns">
             <div class="form-group">
-                <label for="passport-issue-date">Délivré le :</label>
+                <label for="passport-issue-date">
+                    <span class="language-fr">Délivré le :</span>
+                    <span class="language-pt">Emitido em :</span>
+                </label>
                 <input type="date" id="passport-issue-date">
             </div>
             <div class="form-group">
-                <label for="passport-issued-by">Par : (Ambassade, Consulat, Préfecture)</label>
+                <label for="passport-issued-by">
+                    <span class="language-fr">Par : (Ambassade, Consulat, Préfecture)</span>
+                    <span class="language-pt">Por : (Embaixada, Consulado, Prefeitura)</span>
+                </label>
                 <input type="text" id="passport-issued-by">
             </div>
         </div>
         
         <div class="two-columns">
             <div class="form-group">
-                <label for="passport-extended-date">Prorogé le :</label>
+                <label for="passport-extended-date">
+                    <span class="language-fr">Prorogé le :</span>
+                    <span class="language-pt">Prorrogado em :</span>
+                </label>
                 <input type="date" id="passport-extended-date">
             </div>
             <div class="form-group">
-                <label for="passport-expiry-date">Date expiration :</label>
+                <label for="passport-expiry-date">
+                    <span class="language-fr">Date expiration :</span>
+                    <span class="language-pt">Data de expiração :</span>
+                </label>
                 <input type="date" id="passport-expiry-date">
             </div>
         </div>
         
-        <div class="section-title">PROFESSION :</div>
+        <div class="section-title">
+            <span class="language-fr">PROFESSION :</span>
+            <span class="language-pt">PROFISSÃO :</span>
+        </div>
         
         <div class="form-group">
-            <label for="profession">Profession précise exercée dans le pays d'accueil :</label>
+            <label for="profession">
+                <span class="language-fr">Profession précise exercée dans le pays d'accueil :</span>
+                <span class="language-pt">Profissão específica exercida no país de acolhimento :</span>
+            </label>
             <input type="text" id="profession">
         </div>
         
         <div class="form-group">
-            <label for="employer">Employeur :</label>
+            <label for="employer">
+                <span class="language-fr">Employeur :</span>
+                <span class="language-pt">Empregador :</span>
+            </label>
             <input type="text" id="employer">
         </div>
         
         <div class="form-group">
-            <label for="employer-address">Adresse de l'employeur :</label>
+            <label for="employer-address">
+                <span class="language-fr">Adresse de l'employeur :</span>
+                <span class="language-pt">Endereço do empregador :</span>
+            </label>
             <input type="text" id="employer-address">
         </div>
         
         <div class="form-group">
-            <label for="employer-phone">Tél. de l'employeur :</label>
+            <label for="employer-phone">
+                <span class="language-fr">Tél. de l'employeur :</span>
+                <span class="language-pt">Tel. do empregador :</span>
+            </label>
             <input type="tel" id="employer-phone">
         </div>
         
-        <div class="section-title">TITRE DE SEJOUR AU BRESIL/PARAGUAY/SURINAME :</div>
+        <div class="section-title">
+            <span class="language-fr">TITRE DE SEJOUR AU BRESIL/PARAGUAY/SURINAME :</span>
+            <span class="language-pt">TÍTULO DE RESIDÊNCIA NO BRASIL/PARAGUAI/SURINAME :</span>
+        </div>
         
         <div class="form-group">
-            <label for="residency-type">Nature du Titre (temporaire ou permanent) :</label>
+            <label for="residency-type">
+                <span class="language-fr">Nature du Titre (temporaire ou permanent) :</span>
+                <span class="language-pt">Tipo de Título (temporário ou permanente) :</span>
+            </label>
             <select id="residency-type">
-                <option value="">-- Sélectionner --</option>
-                <option value="temporaire">Temporaire</option>
-                <option value="permanent">Permanent</option>
+                <option value="">-- <span class="language-fr">Sélectionner</span><span class="language-pt">Selecionar</span> --</option>
+                <option value="temporaire"><span class="language-fr">Temporaire</span><span class="language-pt">Temporário</span></option>
+                <option value="permanent"><span class="language-fr">Permanent</span><span class="language-pt">Permanente</span></option>
             </select>
         </div>
         
         <div class="two-columns">
             <div class="form-group">
-                <label for="residency-card-number">N° de la carte :</label>
+                <label for="residency-card-number">
+                    <span class="language-fr">N° de la carte :</span>
+                    <span class="language-pt">N° do cartão :</span>
+                </label>
                 <input type="text" id="residency-card-number">
             </div>
             <div class="form-group">
-                <label for="residency-issue-date">Date délivrance :</label>
+                <label for="residency-issue-date">
+                    <span class="language-fr">Date délivrance :</span>
+                    <span class="language-pt">Data de emissão :</span>
+                </label>
                 <input type="date" id="residency-issue-date">
             </div>
         </div>
         
         <div class="two-columns">
             <div class="form-group">
-                <label for="residency-issue-place">Lieu délivrance :</label>
+                <label for="residency-issue-place">
+                    <span class="language-fr">Lieu délivrance :</span>
+                    <span class="language-pt">Local de emissão :</span>
+                </label>
                 <input type="text" id="residency-issue-place">
             </div>
             <div class="form-group">
-                <label for="residency-expiry-date">Date expiration :</label>
+                <label for="residency-expiry-date">
+                    <span class="language-fr">Date expiration :</span>
+                    <span class="language-pt">Data de expiração :</span>
+                </label>
                 <input type="date" id="residency-expiry-date">
             </div>
         </div>
         
         <div class="signature-line">
-            Signature de l'immatriculé(e)
+            <span class="language-fr">Signature de l'immatriculé(e)</span>
+            <span class="language-pt">Assinatura do(a) registrado(a)</span>
         </div>
         
         <div class="form-group" style="text-align: right;">
-            <label for="signature-date">Date :</label>
+            <label for="signature-date">
+                <span class="language-fr">Date :</span>
+                <span class="language-pt">Data :</span>
+            </label>
             <input type="date" id="signature-date" style="width: 150px;">
         </div>
         
         <div class="btn-container">
+            <button class="btn btn-translate" id="translate-btn">Traduzir para Português</button>
             <button class="btn" id="save-pdf">Enregistrer en PDF</button>
         </div>
     </div>
@@ -376,6 +543,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const { jsPDF } = window.jspdf;
             
+            // Botão para salvar PDF
             document.getElementById('save-pdf').addEventListener('click', function() {
                 const element = document.getElementById('form-to-print');
                 
@@ -402,7 +570,39 @@
                         heightLeft -= pageHeight;
                     }
                     
-                    pdf.save('formulaire_immatriculation.pdf');
+                    const fileName = document.body.classList.contains('portuguese') ? 
+                        'formulario_registro_consular.pdf' : 
+                        'formulaire_immatriculation.pdf';
+                    
+                    pdf.save(fileName);
+                });
+            });
+            
+            const translateBtn = document.getElementById('translate-btn');
+            let isPortuguese = false;
+            
+            translateBtn.addEventListener('click', function() {
+                isPortuguese = !isPortuguese;
+                
+                if (isPortuguese) {
+                    document.body.classList.add('portuguese');
+                    translateBtn.textContent = 'Voltar para Francês';
+                } else {
+                    document.body.classList.remove('portuguese');
+                    translateBtn.textContent = 'Traduzir para Português';
+                }
+                
+                document.querySelectorAll('select').forEach(select => {
+                    Array.from(select.options).forEach(option => {
+                        const frText = option.querySelector('.language-fr')?.textContent || '';
+                        const ptText = option.querySelector('.language-pt')?.textContent || '';
+                        
+                        if (isPortuguese && ptText) {
+                            option.text = ptText;
+                        } else if (!isPortuguese && frText) {
+                            option.text = frText;
+                        }
+                    });
                 });
             });
         });
