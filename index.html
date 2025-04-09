@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire d'Immatriculation - Ambassade du Maroc</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #006233;
+            padding-bottom: 20px;
+        }
+        
+        .header h1 {
+            color: #006233;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .header h2 {
+            color: #c1272d;
+            font-size: 18px;
+            margin-top: 0;
+        }
+        
+        .form-title {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 30px;
+            font-size: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        input[type="text"],
+        input[type="date"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        .phone-input {
+            display: flex;
+            align-items: center;
+        }
+        
+        .phone-input span {
+            margin-right: 5px;
+        }
+        
+        .section-title {
+            font-weight: bold;
+            margin: 20px 0 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .signature-line {
+            border-top: 1px solid #333;
+            width: 300px;
+            margin: 30px 0 10px;
+            text-align: center;
+            padding-top: 5px;
+        }
+        
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            background-color: #006233;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .btn:hover {
+            background-color: #004d27;
+        }
+        
+        .two-columns {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .two-columns > div {
+            flex: 1;
+        }
+        
+        @media (max-width: 600px) {
+            .two-columns {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container" id="form-to-print">
+        <div class="header">
+            <h1>سفارة المملكة المغربية</h1>
+            <h2>برأزبليا</h2>
+        </div>
+        
+        <div class="form-title">DEMANDE D'IMMATRICULATION</div>
+        <div style="font-style: italic; margin-bottom: 20px;">(A remplir par les citoyens Marocains résidant au Brésil, Paraguay ou Suriname)</div>
+        
+        <div class="two-columns">
+            <div class="form-group">
+                <label for="immatriculation-number">N° d'Immatriculation :</label>
+                <input type="text" id="immatriculation-number">
+            </div>
+            <div class="form-group">
+                <label for="immatriculation-date">Date d'immatriculation :</label>
+                <input type="date" id="immatriculation-date">
+            </div>
+        </div>
+        
+        <div class="section-title">Immatriculation antérieure: Ambassade ou Consulat du Royaume du Maroc à:</div>
+        <div class="form-group">
+            <input type="text" id="previous-immatriculation-1">
+        </div>
+        <div class="form-group">
+            <input type="text" id="previous-immatriculation-2">
+        </div>
+        
+        <div class="two-columns">
+            <div class="form-group">
+                <label for="cin-number">N° de la Carte d'Identité Nationale Marocaine (CIN) :</label>
+                <input type="text" id="cin-number">
+            </div>
+            <div class="form-group">
+                <label for="cin-issue-date">Date de délivrance :</label>
+                <input type="date" id="cin-issue-date">
+            </div>
+        </div>
+        
+        <div class="two-columns">
+            <div class="form-group">
+                <label for="first-name">Prénom :</label>
+                <input type="text" id="first-name">
+            </div>
+            <div class="form-group">
+                <label for="last-name">Nom :</label>
+                <input type="text" id="last-name">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="arrival-date">Date d'arrivée au Brésil :</label>
+            <input type="date" id="arrival-date">
+        </div>
+        
+        <div class="section-title">ETAT CIVIL :</div>
+        
+        <div class="two-columns">
+            <div class="form-group">
+                <label for="birth-date">Date de naissance :</label>
+                <input type="date" id="birth-date">
+            </div>
+            <div class="form-group">
+                <label for="current-nationality">Nationalité actuelle :</label>
+                <input type="text" id="current-nationality">
+            </div>
+        </div>
+        
+        <div class="two-columns">
+            <div class="form-group">
+                <label for="birth-place">Lieu de naissance :</label>
+                <input type="text" id="birth-place">
+            </div>
+            <div class="form-group">
+                <label for="original-nationality">Nationalité d'origine :</label>
+                <input type="text" id="original-nationality">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="family-situation">Situation de Famille :</label>
+            <input type="text" id="family-situation">
+        </div>
+        
+        <div class="section-title">Parents :</div>
+        
+        <div class="form-group">
+            <label for="father-name">Prénom et Nom du Père :</label>
+            <input type="text" id="father-name">
+        </div>
+        
+        <div class="form-group">
+            <label for="father-nationality">Nationalité du père :</label>
+            <input type="text" id="father-nationality">
+        </div>
+        
+        <div class="form-group">
+            <label for="mother-name">Prénom et Nom de la Mère :</label>
+            <input type="text" id="mother-name">
+        </div>
+        
+        <div class="form-group">
+            <label for="mother-nationality">Nationalité de la mère :</label>
+            <input type="text" id="mother-nationality">
+        </div>
+        
+        <div class="section-title">ADRESSE :</div>
+        
+        <div class="form-group">
+            <label for="current-address">Adresse complète au Brésil/Paraguay/Suriname :</label>
+            <textarea id="current-address" rows="3"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label>Téléphone :</label>
+            <div class="phone-input">
+                <span>Domicile :</span> <input type="tel" id="home-phone" style="width: 150px;">
+            </div>
+            <div class="phone-input">
+                <span>Travail :</span> <input type="tel" id="work-phone" style="width: 150px;">
+            </div>
+            <div class="phone-input">
+                <span>Cellulaire :</span> <input type="tel" id="mobile-phone" style="width: 150px;">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="email">e-mail :</label>
+            <input type="email" id="email">
+        </div>
+        
+        <div class="form-group">
+            <label for="morocco-address">Adresse complète au Maroc :</label>
+            <textarea id="morocco-address" rows="3"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="morocco-phone">Téléphone :</label>
+            <input type="tel" id="morocco-phone">
+        </div>
+        
+        <div class="section-title">PASSEPORT :</div>
+        
+        <div class="form-group">
+            <label for="passport-number">N° du passeport actuel :</label>
+            <input type="text" id="passport-number">
+        </div>
+        
+        <div class="two-columns">
+            <div class="form-group">
+                <label for="passport-issue-date">Délivré le :</label>
+                <input type="date" id="passport-issue-date">
+            </div>
+            <div class="form-group">
+                <label for="passport-issued-by">Par : (Ambassade, Consulat, Préfecture)</label>
+                <input type="text" id="passport-issued-by">
+            </div>
+        </div>
+        
+        <div class="two-columns">
+            <div class="form-group">
+                <label for="passport-extended-date">Prorogé le :</label>
+                <input type="date" id="passport-extended-date">
+            </div>
+            <div class="form-group">
+                <label for="passport-expiry-date">Date expiration :</label>
+                <input type="date" id="passport-expiry-date">
+            </div>
+        </div>
+        
+        <div class="section-title">PROFESSION :</div>
+        
+        <div class="form-group">
+            <label for="profession">Profession précise exercée dans le pays d'accueil :</label>
+            <input type="text" id="profession">
+        </div>
+        
+        <div class="form-group">
+            <label for="employer">Employeur :</label>
+            <input type="text" id="employer">
+        </div>
+        
+        <div class="form-group">
+            <label for="employer-address">Adresse de l'employeur :</label>
+            <input type="text" id="employer-address">
+        </div>
+        
+        <div class="form-group">
+            <label for="employer-phone">Tél. de l'employeur :</label>
+            <input type="tel" id="employer-phone">
+        </div>
+        
+        <div class="section-title">TITRE DE SEJOUR AU BRESIL/PARAGUAY/SURINAME :</div>
+        
+        <div class="form-group">
+            <label for="residency-type">Nature du Titre (temporaire ou permanent) :</label>
+            <select id="residency-type">
+                <option value="">-- Sélectionner --</option>
+                <option value="temporaire">Temporaire</option>
+                <option value="permanent">Permanent</option>
+            </select>
+        </div>
+        
+        <div class="two-columns">
+            <div class="form-group">
+                <label for="residency-card-number">N° de la carte :</label>
+                <input type="text" id="residency-card-number">
+            </div>
+            <div class="form-group">
+                <label for="residency-issue-date">Date délivrance :</label>
+                <input type="date" id="residency-issue-date">
+            </div>
+        </div>
+        
+        <div class="two-columns">
+            <div class="form-group">
+                <label for="residency-issue-place">Lieu délivrance :</label>
+                <input type="text" id="residency-issue-place">
+            </div>
+            <div class="form-group">
+                <label for="residency-expiry-date">Date expiration :</label>
+                <input type="date" id="residency-expiry-date">
+            </div>
+        </div>
+        
+        <div class="signature-line">
+            Signature de l'immatriculé(e)
+        </div>
+        
+        <div class="form-group" style="text-align: right;">
+            <label for="signature-date">Date :</label>
+            <input type="date" id="signature-date" style="width: 150px;">
+        </div>
+        
+        <div class="btn-container">
+            <button class="btn" id="save-pdf">Enregistrer en PDF</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const { jsPDF } = window.jspdf;
+            
+            document.getElementById('save-pdf').addEventListener('click', function() {
+                const element = document.getElementById('form-to-print');
+                
+                html2canvas(element, {
+                    scale: 2,
+                    logging: false,
+                    useCORS: true
+                }).then(canvas => {
+                    const imgData = canvas.toDataURL('image/png');
+                    const pdf = new jsPDF('p', 'mm', 'a4');
+                    const imgWidth = 210;
+                    const pageHeight = 295;
+                    const imgHeight = canvas.height * imgWidth / canvas.width;
+                    let heightLeft = imgHeight;
+                    let position = 0;
+                    
+                    pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                    heightLeft -= pageHeight;
+                    
+                    while (heightLeft >= 0) {
+                        position = heightLeft - imgHeight;
+                        pdf.addPage();
+                        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                        heightLeft -= pageHeight;
+                    }
+                    
+                    pdf.save('formulaire_immatriculation.pdf');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
